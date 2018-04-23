@@ -6,14 +6,25 @@
 #define TIMBREAUTOMATIZADO_SPLASH_H
 
 #include <QSplashScreen>
+#include <QTimer>
+#include <QString>
+#include <QDebug>
 
 class Splash {
-    Splash();
+public:
+    explicit Splash(QPixmap dirLogo,  int t);
+    explicit Splash(const int tiempo);
     ~Splash();
 
-public:
-    void iniciar(QPixmap dir);
+    void iniciar( QWidget &w);
+    void setLogo(const QPixmap logo);
+    void setTiempo(const int tiempo);
 
+    //Test
+private:
+    QSplashScreen *splashScreen;
+    QPixmap logo;
+    int tiempo;
 
 
 };

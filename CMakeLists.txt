@@ -6,11 +6,17 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_AUTORCC ON)
 
-set(RESOURCE resource/)
-set(SOURCE_FILES Inicio/inicio.cpp Splash/splash.cpp )
-set(INCLUDE_FILES Inicio/inicio.h Splash/splash.cpp )
-set(UI_FILES Inicio/inicio.ui)
+set(RESOURCE images/)
+
+set(SOURCE_FILES    Inicio/inicio.cpp
+                    Splash/splash.cpp )
+
+set(INCLUDE_FILES   Inicio/inicio.h
+                    Splash/splash.cpp )
+
+set(UI_FILES        Inicio/inicio.ui )
 
 #Find packages
 find_package( Qt5Core REQUIRED )
@@ -19,11 +25,14 @@ find_package( Qt5Gui REQUIRED )
 
 list(APPEND THIRD_PARTY_LIBS Qt5::Widgets Qt5::Core)
 
+qt5_add_resources(RESOURCES resources.qrc)
+
 add_executable(TimbreAutomatizado
         main.cpp
         ${SOURCE_FILES}
         ${INCLUDE_FILES}
         ${UI_FILES}
+        resources.qrc
         )
 
 qt5_use_modules(${PROJECT_NAME} Core Gui Widgets )
