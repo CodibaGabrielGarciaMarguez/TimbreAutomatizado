@@ -10,13 +10,13 @@ set(CMAKE_AUTORCC ON)
 
 set(RESOURCE images/)
 
-set(SOURCE_FILES    Inicio/inicio.cpp
+set(SOURCE_FILES Inicio/inicio.cpp
                     Splash/splash.cpp )
 
-set(INCLUDE_FILES   Inicio/inicio.h
+set(INCLUDE_FILES Inicio/inicio.h
                     Splash/splash.cpp )
 
-set(UI_FILES        Inicio/inicio.ui )
+set(UI_FILES Inicio/inicio.ui)
 
 #Find packages
 find_package( Qt5Core REQUIRED )
@@ -32,7 +32,7 @@ add_executable(TimbreAutomatizado
         ${SOURCE_FILES}
         ${INCLUDE_FILES}
         ${UI_FILES}
-        resources.qrc
+        ${RESOURCES}
         )
 
 qt5_use_modules(${PROJECT_NAME} Core Gui Widgets )

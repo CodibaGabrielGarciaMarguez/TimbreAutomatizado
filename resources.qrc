@@ -2,4 +2,10 @@
     <qresource prefix="/new/prefix1">
         <file>resource/index.png</file>
     </qresource>
+    <qresource prefix="/new/prefix1">
+        <file>resource/icono.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix1">
+        <file>resource/cerrar.png</file>
+    </qresource>
 </RCC>
