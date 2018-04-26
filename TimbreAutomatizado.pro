@@ -26,14 +26,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         Splash/splash.cpp \
-        Inicio/inicio.cpp
+        Inicio/inicio.cpp \
+        Manual/manual.cpp
 
 HEADERS += \
-    Splash/splash.h\
-    Inicio/inicio.h
+    Splash/splash.h \
+    Inicio/inicio.h \
+    Manual/manual.h
 
 FORMS += \
-    Inicio/inicio.ui
+    Inicio/inicio.ui \
+    Manual/manual.ui
 
 RESOURCES += \
     resources.qrc

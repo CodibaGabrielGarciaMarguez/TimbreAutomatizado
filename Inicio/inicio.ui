@@ -112,7 +112,7 @@
     <string>Perfiles</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="confiruacionBtn">
+  <widget class="QPushButton" name="configuracionBtn">
    <property name="geometry">
     <rect>
      <x>0</x>

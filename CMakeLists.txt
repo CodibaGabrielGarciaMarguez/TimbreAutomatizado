@@ -10,13 +10,16 @@ set(CMAKE_AUTORCC ON)
 
 set(RESOURCE images/)
 
-set(SOURCE_FILES Inicio/inicio.cpp
-                    Splash/splash.cpp )
+set(SOURCE_FILES    Inicio/inicio.cpp
+                    Splash/splash.cpp
+                    Manual/manual.cpp)
 
-set(INCLUDE_FILES Inicio/inicio.h
-                    Splash/splash.cpp )
+set(INCLUDE_FILES   Inicio/inicio.h
+                    Splash/splash.h
+                    Manual/manual.h)
 
-set(UI_FILES Inicio/inicio.ui)
+set(UI_FILES        Inicio/inicio.ui
+                    Manual/manual.ui)
 
 #Find packages
 find_package( Qt5Core REQUIRED )

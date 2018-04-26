@@ -30,11 +30,4 @@ private:
     Manual *manual;
 };
 
-/*
-void Widget::moveToCenter()
-{
-    move(qApp->desktop()->availableGeometry(this).center()-rect().center());
-}
-*/
-
 #endif // INICIO_H

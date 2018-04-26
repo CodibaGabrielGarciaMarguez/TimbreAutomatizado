@@ -1,3 +1,4 @@
+#include <Inicio/inicio.h>
 #include "manual.h"
 #include "ui_manual.h"
 
@@ -18,7 +19,6 @@ Manual::Manual(QWidget *parent) :
 Manual::~Manual()
 {
     delete ui;
-    delete inicio;
 }
 
 void Manual::on_cerrarBtn_clicked() {
@@ -28,7 +28,7 @@ void Manual::on_cerrarBtn_clicked() {
 
 void Manual::on_retrocederBtn_clicked() {
     //TODO Implementar retroceder
-    inicio= new Inicio(this);
+    auto inicio = new Inicio();
     hide();
     inicio->show();
 

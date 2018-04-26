@@ -18,7 +18,6 @@ Inicio::Inicio(QWidget *parent) :
 
 Inicio::~Inicio(){
     delete ui;
-    delete manualO;
 }
 
 void Inicio::on_closeBtn_clicked(){

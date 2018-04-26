@@ -2,9 +2,7 @@
 #define MANUAL_H
 
 #include <QWidget>
-#include <Inicio/inicio.h>
 #include <QDesktopWidget>
-#include <Inicio/inicio.h>
 
 namespace Ui {
 class Manual;
@@ -25,7 +23,6 @@ private slots:
 
 private:
     Ui::Manual *ui;
-    Inicio *inicio;
 
 };
 
