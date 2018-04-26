@@ -5,6 +5,7 @@
 #include <QApplication>
 #include <QSize>
 #include <QDesktopWidget>
+#include <Manual/manual.h>
 
 namespace Ui {
 class Inicio;
@@ -18,11 +19,15 @@ public:
     explicit Inicio(QWidget *parent = nullptr);
     ~Inicio();
 
+private slots:
+    void on_closeBtn_clicked();
+    void on_manualBtn_clicked();
+    void on_perfilesBtn_clicked();
+    void on_configuracionBtn_clicked();
 
 private:
-    void centrar();
-
     Ui::Inicio *ui;
+    Manual *manual;
 };
 
 /*

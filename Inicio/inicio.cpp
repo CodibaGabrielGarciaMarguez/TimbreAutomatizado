@@ -6,24 +6,41 @@ Inicio::Inicio(QWidget *parent) :
     ui(new Ui::Inicio)
 {
     ui->setupUi(this);
-    this->move(this->geometry().center());
-    setFixedSize(width(), height());
     setWindowFlags(Qt::Window | Qt::CustomizeWindowHint);
 
-    centrar();
-
-    //test
+    //Centrar widget
+    auto tamDisponible = qApp->desktop()->availableGeometry().size();
+    auto anchoD = tamDisponible.width()/2-width()/2;
+    auto alturaD = tamDisponible.height()/2-height()/2;
+    move(anchoD, alturaD);
 
 }
 
-Inicio::~Inicio()
-{
+Inicio::~Inicio(){
     delete ui;
+    delete manualO;
 }
 
-void Inicio::centrar() {
-    QSize availableSize = qApp->desktop()->availableGeometry().size();
-    auto widthS = availableSize.width()/2-width()/2;
-    auto heightS = availableSize.height()/2-height()/2;
-    move(widthS,heightS);
+void Inicio::on_closeBtn_clicked(){
+    //TODO Confirmar salida del programa
+    close();
 }
+
+void Inicio::on_manualBtn_clicked() {
+    //TODO Implentar boton manual
+    manual = new Manual(this);
+    hide();
+    manual->show();
+
+}
+
+void Inicio::on_perfilesBtn_clicked() {
+    //TODO Implentar boton perfiles
+}
+
+void Inicio::on_configuracionBtn_clicked() {
+    //TODO Implentar boton configuracion
+}
+
+
+
