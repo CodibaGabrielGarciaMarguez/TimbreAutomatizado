@@ -6,6 +6,7 @@
 #include <QSize>
 #include <QDesktopWidget>
 #include <Manual/manual.h>
+#include <Perfiles/perfiles.h>
 
 namespace Ui {
 class Inicio;
@@ -28,6 +29,7 @@ private slots:
 private:
     Ui::Inicio *ui;
     Manual *manual;
+    Perfiles *perfiles;
 };
 
 #endif // INICIO_H

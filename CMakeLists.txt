@@ -8,18 +8,22 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(CMAKE_AUTORCC ON)
 
-set(RESOURCE images/)
-
 set(SOURCE_FILES    Inicio/inicio.cpp
                     Splash/splash.cpp
-                    Manual/manual.cpp)
+                    Manual/manual.cpp
+                    Perfiles/perfiles.cpp
+        )
 
 set(INCLUDE_FILES   Inicio/inicio.h
                     Splash/splash.h
-                    Manual/manual.h)
+                    Manual/manual.h
+                    Perfiles/perfiles.h
+        )
 
 set(UI_FILES        Inicio/inicio.ui
-                    Manual/manual.ui)
+                    Manual/manual.ui
+                    Perfiles/perfiles.ui
+        )
 
 #Find packages
 find_package( Qt5Core REQUIRED )

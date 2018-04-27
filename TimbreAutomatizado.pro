@@ -27,16 +27,19 @@ SOURCES += \
         main.cpp \
         Splash/splash.cpp \
         Inicio/inicio.cpp \
-        Manual/manual.cpp
+        Manual/manual.cpp \
+    Perfiles/perfiles.cpp
 
 HEADERS += \
     Splash/splash.h \
     Inicio/inicio.h \
-    Manual/manual.h
+    Manual/manual.h \
+    Perfiles/perfiles.h
 
 FORMS += \
     Inicio/inicio.ui \
-    Manual/manual.ui
+    Manual/manual.ui \
+    Perfiles/perfiles.ui
 
 RESOURCES += \
     resources.qrc

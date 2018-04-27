@@ -1,6 +1,6 @@
-#include <Inicio/inicio.h>
 #include "manual.h"
 #include "ui_manual.h"
+#include "Inicio/inicio.h"
 
 Manual::Manual(QWidget *parent) :
     QWidget(parent),
@@ -29,9 +29,8 @@ void Manual::on_cerrarBtn_clicked() {
 void Manual::on_retrocederBtn_clicked() {
     //TODO Implementar retroceder
     auto inicio = new Inicio();
-    hide();
+    close();
     inicio->show();
-
 }
 
 void Manual::on_timbreBtn_clicked() {
