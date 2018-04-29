@@ -15,6 +15,9 @@ public:
     explicit Configuracion(QWidget *parent = 0);
     ~Configuracion();
 
+private slots:
+    void on_retrocederBtn_clicked();
+
 private:
     Ui::Configuracion *ui;
 };
