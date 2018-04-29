@@ -5,8 +5,8 @@
 #include <QApplication>
 #include <QSize>
 #include <QDesktopWidget>
-#include <Manual/manual.h>
-#include <Perfiles/perfiles.h>
+#include <src/Manual/manual.h>
+#include <src/Perfiles/perfiles.h>
 
 namespace Ui {
 class Inicio;

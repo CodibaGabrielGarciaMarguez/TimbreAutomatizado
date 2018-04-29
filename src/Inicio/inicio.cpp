@@ -1,3 +1,4 @@
+#include <src/Configuracion/configuracion.h>
 #include "inicio.h"
 #include "ui_inicio.h"
 
@@ -8,7 +9,6 @@ Inicio::Inicio(QWidget *parent) :
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::CustomizeWindowHint);
 
-    //Centrar widget
     auto tamDisponible = qApp->desktop()->availableGeometry().size();
     auto anchoD = tamDisponible.width()/2-width()/2;
     auto alturaD = tamDisponible.height()/2-height()/2;
@@ -41,7 +41,7 @@ void Inicio::on_perfilesBtn_clicked() {
 
 void Inicio::on_configuracionBtn_clicked() {
     //TODO Implentar boton configuracion
+    auto config = new Configuracion();
+    close();
+    config->show();
 }
-
-
-
