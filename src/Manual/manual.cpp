@@ -1,6 +1,6 @@
 #include "manual.h"
 #include "ui_manual.h"
-#include "Inicio/inicio.h"
+#include "src/Inicio/inicio.h"
 
 Manual::Manual(QWidget *parent) :
     QWidget(parent),
