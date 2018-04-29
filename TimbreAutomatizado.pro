@@ -25,21 +25,30 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        Splash/splash.cpp \
-        Inicio/inicio.cpp \
-        Manual/manual.cpp \
-    Perfiles/perfiles.cpp
+        src/Splash/splash.cpp \
+        src/Inicio/inicio.cpp \
+        src/Manual/manual.cpp \
+        src/Perfiles/perfiles.cpp \
+        src/Creditos/creditos.cpp \
+        src/Configuracion/configuracion.cpp \
+        src/Perfiles/formularioperfiles.cpp
 
 HEADERS += \
-    Splash/splash.h \
-    Inicio/inicio.h \
-    Manual/manual.h \
-    Perfiles/perfiles.h
+    src/Splash/splash.h \
+    src/Inicio/inicio.h \
+    src/Manual/manual.h \
+    src/Perfiles/perfiles.h \
+    src/Creditos/creditos.h \
+    src/Configuracion/configuracion.h \
+    src/Perfiles/formularioperfiles.h
 
 FORMS += \
-    Inicio/inicio.ui \
-    Manual/manual.ui \
-    Perfiles/perfiles.ui
+    src/Inicio/inicio.ui \
+    src/Manual/manual.ui \
+    src/Perfiles/perfiles.ui \
+    src/Creditos/creditos.ui \
+    src/Configuracion/configuracion.ui \
+    src/Perfiles/formularioperfiles.ui
 
 RESOURCES += \
     resources.qrc

@@ -8,21 +8,32 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(CMAKE_AUTORCC ON)
 
-set(SOURCE_FILES    Inicio/inicio.cpp
-                    Splash/splash.cpp
-                    Manual/manual.cpp
-                    Perfiles/perfiles.cpp
+set(SOURCE_FILES    src/Inicio/inicio.cpp
+                    src/Splash/splash.cpp
+                    src/Manual/manual.cpp
+                    src/Perfiles/perfiles.cpp
+                    src/Configuracion/configuracion.cpp
+                    src/Creditos/creditos.cpp
+                    src/Comunicacion/comunicacion.cpp
+                    src/Perfiles/formularioperfiles.cpp
         )
 
-set(INCLUDE_FILES   Inicio/inicio.h
-                    Splash/splash.h
-                    Manual/manual.h
-                    Perfiles/perfiles.h
+set(INCLUDE_FILES   src/Inicio/inicio.h
+                    src/Splash/splash.h
+                    src/Manual/manual.h
+                    src/Perfiles/perfiles.h
+                    src/Configuracion/configuracion.h
+                    src/Creditos/creditos.h
+                    src/Comunicacion/comunicacion.h
+                    src/Perfiles/formularioperfiles.h
         )
 
-set(UI_FILES        Inicio/inicio.ui
-                    Manual/manual.ui
-                    Perfiles/perfiles.ui
+set(UI_FILES        src/Inicio/inicio.ui
+                    src/Manual/manual.ui
+                    src/Perfiles/perfiles.ui
+                    src/Configuracion/configuracion.ui
+                    src/Creditos/creditos.ui
+                    src/Perfiles/formularioperfiles.ui
         )
 
 #Find packages
@@ -42,7 +53,7 @@ add_executable(TimbreAutomatizado
         ${RESOURCES}
         )
 
-qt5_use_modules(${PROJECT_NAME} Core Gui Widgets )
+qt5_use_modules(${PROJECT_NAME} Core Gui Widgets SerialPort)
 
 target_link_libraries(${PROJECT_NAME}
         Qt5::Core
