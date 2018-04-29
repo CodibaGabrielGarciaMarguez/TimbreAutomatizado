@@ -12,3 +12,35 @@ FormularioPerfiles::~FormularioPerfiles()
 {
     delete ui;
 }
+
+QString FormularioPerfiles::nombre() const {
+    return ui->nombre->text();
+}
+
+double FormularioPerfiles::hrSalida() const {
+    return ui->hrSalida->value();
+}
+
+double FormularioPerfiles::hrEntrada() const {
+    return ui->hrEntrada->value();
+}
+
+int FormularioPerfiles::nHoras() const {
+    return ui->nHoras->value();
+}
+
+double FormularioPerfiles::tReceso() const {
+    return ui->tReceso->value();
+}
+
+double FormularioPerfiles::tHoras() const {
+    return ui->tPorHora->value();
+}
+
+void FormularioPerfiles::on_confirmar_accepted() {
+    accept();
+}
+
+void FormularioPerfiles::on_confirmar_rejected() {
+    reject();
+}
