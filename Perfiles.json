@@ -1,0 +1,18 @@
+{
+  "Perfiles":[
+    {
+        "Default": {
+          "E/S": {
+            "EntradaHr": 6.45,
+            "SalidaHr": 12.15
+          },
+          "Clases": {
+            "Nro clases": 6,
+            "TiempoHora": 55,
+            "TiempoReceso": 30
+          }
+        }
+
+    }
+  ]
+}
