@@ -5,6 +5,8 @@
 #include <src/Inicio/inicio.h>
 #include "formularioperfiles.h"
 
+#include <iostream>
+
 Perfiles::Perfiles(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Perfiles)
@@ -35,12 +37,10 @@ void Perfiles::on_retrocederBtn_clicked() {
 }
 
 void Perfiles::on_nuevoBtn_clicked(){
-    FormularioPerfiles fp(this);
+
     auto res = fp.exec();
 
-    if (res == QDialog::Rejected){
-        return;
-    }
+    if (res == QDialog::Rejected){  return;  }
 
     auto nombre = fp.nombre();
 
@@ -66,6 +66,35 @@ void Perfiles::writeJson() {
     phoneNumbersArray.push_back("+44 2345678");
     recordObject.insert("Phone Numbers", phoneNumbersArray);
 
+    qDebug() <<
+
     QJsonDocument doc(recordObject);
     qDebug() << doc.toJson();
 }
+
+void Perfiles::writeJson(FormularioPerfiles *o){
+    /** Json Structure
+     *{
+        "Perfiles": [{
+                        "Nombre": "Defecto",
+                        "E/S hr": {
+                                        "Entrada": 7.45,
+                                        "Salida" : 12.15
+                                  },
+                        "Clases": {
+                                        "Nro clases": 6,
+                                        "TiempoHora": 55,
+                                        "TiempoReceso": 30
+                                  }
+                     }, {
+                         "ID": 571,
+                         "picture": "02103.png",
+                         "name": "Tina"
+                     }]
+      }
+     * **/
+    delete o;
+}
+
+
+

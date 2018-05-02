@@ -2,6 +2,7 @@
 #define PERFILES_H
 
 #include <QWidget>
+#include "formularioperfiles.h"
 
 namespace Ui {
 class Perfiles;
@@ -22,9 +23,11 @@ private slots:
 
 private:
     Ui::Perfiles *ui;
+    FormularioPerfiles fp;
 
     //JSon test
     void writeJson();
+    void writeJson(FormularioPerfiles *o);
 
 };
 
