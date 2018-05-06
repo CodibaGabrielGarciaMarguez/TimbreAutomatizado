@@ -17,7 +17,7 @@ class Inicio : public QWidget
     Q_OBJECT
 
 public:
-    explicit Inicio(QWidget *parent = nullptr);
+    explicit Inicio(QWidget *parent = 0);
     ~Inicio();
 
 private slots:
