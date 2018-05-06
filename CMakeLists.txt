@@ -16,7 +16,7 @@ set(SOURCE_FILES    src/Inicio/inicio.cpp
                     src/Creditos/creditos.cpp
                     src/Comunicacion/comunicacion.cpp
                     src/Perfiles/formularioperfiles.cpp
-        )
+                    src/Perfiles/JsonSerializer.cpp )
 
 set(INCLUDE_FILES   src/Inicio/inicio.h
                     src/Splash/splash.h
@@ -26,6 +26,7 @@ set(INCLUDE_FILES   src/Inicio/inicio.h
                     src/Creditos/creditos.h
                     src/Comunicacion/comunicacion.h
                     src/Perfiles/formularioperfiles.h
+                    src/Perfiles/JsonSerializer.h
         )
 
 set(UI_FILES        src/Inicio/inicio.ui
