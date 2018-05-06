@@ -1,18 +1,52 @@
 {
-  "Perfiles":[
-    {
-        "Default": {
-          "E/S": {
-            "EntradaHr": 6.45,
-            "SalidaHr": 12.15
-          },
-          "Clases": {
-            "Nro clases": 6,
-            "TiempoHora": 55,
-            "TiempoReceso": 30
-          }
+    "Perfiles": [
+        {
+            "Clases": {
+                "Nro clases": 6,
+                "TiempoHora": 55,
+                "TiempoReceso": 30
+            },
+            "E/S": {
+                "EntradaHr": 6.45,
+                "SalidaHr": 12.15
+            },
+            "Nombre": "Default"
+        },
+        {
+            "Clases": {
+                "Nro clases": 6,
+                "TiempoHora": 55,
+                "TiempoReceso": 30
+            },
+            "E/S": {
+                "EntradaHr": 7.45,
+                "SalidaHr": 12.15
+            },
+            "Nombre": "Personalizado 1"
+        },
+        {
+            "Clases": {
+                "Nro clases": 0,
+                "TiempoHora": 0,
+                "TiempoReceso": 0
+            },
+            "E/S": {
+                "EntradaHr": 0,
+                "SalidaHr": 0
+            },
+            "Nombre": ""
+        },
+        {
+            "Clases": {
+                "Nro clases": 0,
+                "TiempoHora": 0,
+                "TiempoReceso": 0
+            },
+            "E/S": {
+                "EntradaHr": 0,
+                "SalidaHr": 0
+            },
+            "Nombre": "asdasd"
         }
-
-    }
-  ]
+    ]
 }
