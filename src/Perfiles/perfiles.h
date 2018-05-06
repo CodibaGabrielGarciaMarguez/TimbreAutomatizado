@@ -23,11 +23,11 @@ private slots:
 
 private:
     Ui::Perfiles *ui;
-    FormularioPerfiles fp;
 
     //JSon test
     void writeJson();
-    void writeJson(FormularioPerfiles *o);
+    void writeJson(FormularioPerfiles *o, QString filename);
+    void readJson();
 
 };
 

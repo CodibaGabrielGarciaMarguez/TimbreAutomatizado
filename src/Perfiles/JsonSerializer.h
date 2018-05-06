@@ -6,7 +6,27 @@
 #define TIMBREAUTOMATIZADO_JSONSERIALIZER_H
 
 
+#include <QString>
+#include "formularioperfiles.h"
+
 class JsonSerializer {
+public:
+    JsonSerializer(QString filename, FormularioPerfiles *fp);
+    ~JsonSerializer();
+
+    int writeJson();
+    int readJson();
+
+    enum State{
+        SUCESS, FAIL, FAIL_OPEN
+    };
+
+private:
+    QString fn;
+    FormularioPerfiles *fp;
+    QString filePath;
+
+    bool fileVerify(QFile *file);
 
 };
 
