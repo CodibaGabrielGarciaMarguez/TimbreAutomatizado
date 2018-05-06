@@ -1,0 +1,14 @@
+//
+// Created by davixcky_dev on 5/4/18.
+//
+
+#ifndef TIMBREAUTOMATIZADO_JSONSERIALIZER_H
+#define TIMBREAUTOMATIZADO_JSONSERIALIZER_H
+
+
+class JsonSerializer {
+
+};
+
+
+#endif //TIMBREAUTOMATIZADO_JSONSERIALIZER_H
