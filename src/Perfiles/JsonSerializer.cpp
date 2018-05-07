@@ -11,11 +11,18 @@
 
 JsonSerializer::JsonSerializer(QString filename, FormularioPerfiles *fp)
         : fn(filename), fp(fp) {
-    filePath = QDir::homePath() + "/Documents/TimbreAutomatizado/" + fn;
+    openFile();
 }
 
 JsonSerializer::~JsonSerializer() {
     delete fp;
+}
+
+void JsonSerializer::openFile() {
+    QDir dirHome = QDir::home();
+    if (!dirHome.cd("Documents/TimbreAutomatizado/"))
+        dirHome.mkdir("Documents/TimbreAutomatizado/");
+    filePath = dirHome.path() + "/" + fn;
 }
 
 int JsonSerializer::readJson() {

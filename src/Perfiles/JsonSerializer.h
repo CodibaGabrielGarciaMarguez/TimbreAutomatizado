@@ -7,6 +7,7 @@
 
 
 #include <QString>
+#include <QFile>
 #include "formularioperfiles.h"
 
 class JsonSerializer {
@@ -26,7 +27,9 @@ private:
     FormularioPerfiles *fp;
     QString filePath;
 
+    void openFile();
     bool fileVerify(QFile *file);
+
 
 };
 
