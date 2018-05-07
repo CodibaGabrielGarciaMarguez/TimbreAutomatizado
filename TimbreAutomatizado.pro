@@ -31,7 +31,9 @@ SOURCES += \
         src/Perfiles/perfiles.cpp \
         src/Creditos/creditos.cpp \
         src/Configuracion/configuracion.cpp \
-        src/Perfiles/formularioperfiles.cpp
+        src/Perfiles/formularioperfiles.cpp \
+        src/Perfiles/JsonSerializer.cpp
+
 
 HEADERS += \
     src/Splash/splash.h \
@@ -40,7 +42,8 @@ HEADERS += \
     src/Perfiles/perfiles.h \
     src/Creditos/creditos.h \
     src/Configuracion/configuracion.h \
-    src/Perfiles/formularioperfiles.h
+    src/Perfiles/formularioperfiles.h \
+    src/Perfiles/JsonSerializer.h
 
 FORMS += \
     src/Inicio/inicio.ui \
