@@ -15,6 +15,13 @@ Perfiles::Perfiles(QWidget *parent) :
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::CustomizeWindowHint);
 
+    //Tabla
+    ui->tablaW->setColumnCount(6);
+    QStringList titulos;
+    titulos << "Nombre" << "Hr Entrada" << "Hr Salida" << "Nro Clases"
+            << "Tiempo Clases" << "Tiempo Receso";
+    ui->tablaW->setHorizontalHeaderLabels(titulos);
+
     auto tamDisponible = qApp->desktop()->availableGeometry().size();
     auto anchoD = tamDisponible.width()/2-width()/2;
     auto alturaD = tamDisponible.height()/2-height()/2;
@@ -42,9 +49,36 @@ void Perfiles::on_nuevoBtn_clicked(){
 
     if (fp.exec() == QDialog::Rejected){  return;  }
 
+    cargarPerfilesTabla(&fp);
+
     JsonSerializer *jsonSerializer = new JsonSerializer("Perfiles.json", &fp);
-    jsonSerializer->writeJson();
+    //jsonSerializer->writeJson();
     jsonSerializer->readJson();
 
+
 }
+
+void Perfiles::cargarPerfilesTabla(FormularioPerfiles *fp) {
+    ui->tablaW->insertRow(ui->tablaW->rowCount());
+    ui->tablaW->setItem(ui->tablaW->rowCount() - 1, NOMBRE,
+                        new QTableWidgetItem(fp->nombre()));
+
+    ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Hr_Entrada,
+                        new QTableWidgetItem(QString::number(fp->hrEntrada())));
+
+    ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Hr_Salida,
+                        new QTableWidgetItem(QString::number(fp->hrSalida())));
+
+    ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Nro_Clases,
+                        new QTableWidgetItem(QString::number(fp->nHoras())));
+
+    ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Tiempo_Clases,
+                        new QTableWidgetItem(QString::number(fp->tHoras())));
+
+    ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Tiempo_Receso,
+                        new QTableWidgetItem(QString::number(fp->tReceso())));
+}
+
+
+
 

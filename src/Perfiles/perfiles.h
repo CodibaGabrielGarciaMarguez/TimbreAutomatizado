@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "formularioperfiles.h"
+#include "JsonSerializer.h"
 
 namespace Ui {
 class Perfiles;
@@ -24,10 +25,14 @@ private slots:
 private:
     Ui::Perfiles *ui;
 
-    //JSon test
-    void writeJson();
-    void writeJson(FormularioPerfiles *o, QString filename);
-    void readJson();
+    void cargarPerfilesTabla(FormularioPerfiles *o);
+
+    //Tabla
+    enum Columna {
+        NOMBRE,
+        Hr_Entrada, Hr_Salida,                  //E/S
+        Nro_Clases,Tiempo_Clases,Tiempo_Receso  //Clases
+    };
 
 };
 
