@@ -21,11 +21,13 @@ private slots:
     void on_cerrarBtn_clicked();
     void on_retrocederBtn_clicked();
     void on_nuevoBtn_clicked();
+    void on_cargarBtn_clicked();
 
 private:
     Ui::Perfiles *ui;
 
     void cargarPerfilesTabla(FormularioPerfiles *o);
+    void cargarPerfilesJson(JsonSerializer *o);
 
     //Tabla
     enum Columna {

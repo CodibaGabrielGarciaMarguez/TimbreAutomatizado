@@ -44,3 +44,4 @@ void FormularioPerfiles::on_confirmar_accepted() {
 void FormularioPerfiles::on_confirmar_rejected() {
     reject();
 }
+ //TODO Validar formulario

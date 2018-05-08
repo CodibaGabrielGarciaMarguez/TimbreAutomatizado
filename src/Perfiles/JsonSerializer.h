@@ -8,15 +8,17 @@
 
 #include <QString>
 #include <QFile>
+#include <QString>
 #include "formularioperfiles.h"
 
 class JsonSerializer {
 public:
-    JsonSerializer(QString filename, FormularioPerfiles *fp);
+    JsonSerializer(QString filename, FormularioPerfiles *fp = nullptr);
     ~JsonSerializer();
 
     int writeJson();
     int readJson();
+    inline QString pathJson(){ return  filePath; }
 
     enum State{
         SUCESS, FAIL, FAIL_OPEN

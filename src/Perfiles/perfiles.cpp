@@ -49,13 +49,18 @@ void Perfiles::on_nuevoBtn_clicked(){
 
     if (fp.exec() == QDialog::Rejected){  return;  }
 
-    cargarPerfilesTabla(&fp);
+    //cargarPerfilesTabla(&fp);
 
     JsonSerializer *jsonSerializer = new JsonSerializer("Perfiles.json", &fp);
-    //jsonSerializer->writeJson();
-    jsonSerializer->readJson();
+    cargarPerfilesJson(jsonSerializer);
+    jsonSerializer->writeJson();
+    //jsonSerializer->readJson();
 
+}
 
+void Perfiles::on_cargarBtn_clicked(){
+    JsonSerializer *jsonSerializer = new JsonSerializer("Perfiles.json");
+    cargarPerfilesJson(jsonSerializer);
 }
 
 void Perfiles::cargarPerfilesTabla(FormularioPerfiles *fp) {
@@ -77,8 +82,56 @@ void Perfiles::cargarPerfilesTabla(FormularioPerfiles *fp) {
 
     ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Tiempo_Receso,
                         new QTableWidgetItem(QString::number(fp->tReceso())));
+
+
 }
 
+void Perfiles::cargarPerfilesJson(JsonSerializer *o) {
+    QFile file(o->pathJson());
+    if(!file.open(QIODevice::ReadWrite | QIODevice::Text)) return;
+    if(!file.exists()) return;
+    auto jsonFileData = file.readAll();
+    file.close();
 
+    QJsonDocument document = QJsonDocument::fromJson(jsonFileData);
+    QJsonObject object = document.object();
+
+    QJsonValue jsonValue = object.value("Perfiles");
+    QJsonArray jsonArray = jsonValue.toArray();
+
+    ui->tablaW->clear();
+    ui->tablaW->clearContents();
+
+    for(QJsonValue value: jsonArray){
+        qDebug() << value.toObject().value("Nombre");
+        auto perfil = value.toObject();
+        auto nombrePerfil = perfil.value("Nombre");
+
+        auto e_sObj = perfil.value("E/S").toObject();
+        auto entradaHr = e_sObj.value("EntradaHr");
+        auto salidaHr = e_sObj.value("SalidaHr");
+
+        auto clasesObj = perfil.value("Clases").toObject();
+        auto nHoras = clasesObj.value("Nro clases");
+        auto tHoras = clasesObj.value("TiempoHora");
+        auto tReceso = clasesObj.value("TiempoReceso");
+
+        ui->tablaW->insertRow(ui->tablaW->rowCount());
+        ui->tablaW->setItem(ui->tablaW->rowCount() - 1, NOMBRE,
+                            new QTableWidgetItem(nombrePerfil.toString()));
+        ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Hr_Entrada,
+                            new QTableWidgetItem(QString::number(entradaHr.toDouble())));
+        ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Hr_Salida,
+                            new QTableWidgetItem(QString::number(salidaHr.toDouble())));
+        ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Nro_Clases,
+                            new QTableWidgetItem(QString::number(nHoras.toDouble())));
+        ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Tiempo_Clases,
+                            new QTableWidgetItem(QString::number(tHoras.toDouble())));
+        ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Tiempo_Receso,
+                            new QTableWidgetItem(QString::number(tReceso.toDouble())));
+
+    }
+
+}
 
 
