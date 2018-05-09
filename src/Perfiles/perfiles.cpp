@@ -5,8 +5,10 @@
 #include <src/Inicio/inicio.h>
 #include "formularioperfiles.h"
 #include "JsonSerializer.h"
+#include "formularioperfilesopciones.h"
 #include <QFile>
 #include <QDir>
+#include <QMessageBox>
 
 Perfiles::Perfiles(QWidget *parent) :
     QWidget(parent),
@@ -22,10 +24,20 @@ Perfiles::Perfiles(QWidget *parent) :
             << "Tiempo Clases" << "Tiempo Receso";
     ui->tablaW->setHorizontalHeaderLabels(titulos);
 
+    iniciarTabla();
+
     auto tamDisponible = qApp->desktop()->availableGeometry().size();
     auto anchoD = tamDisponible.width()/2-width()/2;
     auto alturaD = tamDisponible.height()/2-height()/2;
     move(anchoD, alturaD);
+
+    //test
+    connect( ui->tablaW, SIGNAL( cellDoubleClicked (int, int) ),
+            this, SLOT( opcionesTabla(int, int)) );
+
+    connect(ui->tablaW, SIGNAL( cellChanged(int, int) ),
+            this, SLOT( celdaEditada(int, int)) );
+
 }
 
 Perfiles::~Perfiles()
@@ -49,45 +61,17 @@ void Perfiles::on_nuevoBtn_clicked(){
 
     if (fp.exec() == QDialog::Rejected){  return;  }
 
-    //cargarPerfilesTabla(&fp);
-
-    JsonSerializer *jsonSerializer = new JsonSerializer("Perfiles.json", &fp);
-    cargarPerfilesJson(jsonSerializer);
-    jsonSerializer->writeJson();
+    cargarPerfilesTabla(&fp);
     //jsonSerializer->readJson();
 
 }
 
-void Perfiles::on_cargarBtn_clicked(){
+void Perfiles::iniciarTabla() {
+    qDebug() << "\n______________________________________";
+    qDebug() << "\t\tInserting items on table";
+
     JsonSerializer *jsonSerializer = new JsonSerializer("Perfiles.json");
-    cargarPerfilesJson(jsonSerializer);
-}
-
-void Perfiles::cargarPerfilesTabla(FormularioPerfiles *fp) {
-    ui->tablaW->insertRow(ui->tablaW->rowCount());
-    ui->tablaW->setItem(ui->tablaW->rowCount() - 1, NOMBRE,
-                        new QTableWidgetItem(fp->nombre()));
-
-    ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Hr_Entrada,
-                        new QTableWidgetItem(QString::number(fp->hrEntrada())));
-
-    ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Hr_Salida,
-                        new QTableWidgetItem(QString::number(fp->hrSalida())));
-
-    ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Nro_Clases,
-                        new QTableWidgetItem(QString::number(fp->nHoras())));
-
-    ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Tiempo_Clases,
-                        new QTableWidgetItem(QString::number(fp->tHoras())));
-
-    ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Tiempo_Receso,
-                        new QTableWidgetItem(QString::number(fp->tReceso())));
-
-
-}
-
-void Perfiles::cargarPerfilesJson(JsonSerializer *o) {
-    QFile file(o->pathJson());
+    QFile file(jsonSerializer->pathJson());
     if(!file.open(QIODevice::ReadWrite | QIODevice::Text)) return;
     if(!file.exists()) return;
     auto jsonFileData = file.readAll();
@@ -131,7 +115,53 @@ void Perfiles::cargarPerfilesJson(JsonSerializer *o) {
                             new QTableWidgetItem(QString::number(tReceso.toDouble())));
 
     }
+}
+
+void Perfiles::cargarPerfilesTabla(FormularioPerfiles *fp) {
+    ui->tablaW->insertRow(ui->tablaW->rowCount());
+    ui->tablaW->setItem(ui->tablaW->rowCount() - 1, NOMBRE,
+                        new QTableWidgetItem(fp->nombre()));
+
+    ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Hr_Entrada,
+                        new QTableWidgetItem(QString::number(fp->hrEntrada())));
+
+    ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Hr_Salida,
+                        new QTableWidgetItem(QString::number(fp->hrSalida())));
+
+    ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Nro_Clases,
+                        new QTableWidgetItem(QString::number(fp->nHoras())));
+
+    ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Tiempo_Clases,
+                        new QTableWidgetItem(QString::number(fp->tHoras())));
+
+    ui->tablaW->setItem(ui->tablaW->rowCount() - 1, Tiempo_Receso,
+                        new QTableWidgetItem(QString::number(fp->tReceso())));
+
+    JsonSerializer *jsonSerializer = new JsonSerializer("Perfiles.json", fp);
+    jsonSerializer->writeJson();
 
 }
 
+void Perfiles::testTabla(int nRow, int nCol) {
+    QMessageBox::information(this, "",
+                             "Cell at row ",QString::number(nRow),
+    " column ",QString::number(nCol));
+}
+
+void Perfiles::opcionesTabla(int nRow, int nCol) {
+    FormularioPerfilesOpciones fp(ui->tablaW, this);
+    auto nombreItem =  ui->tablaW->takeItem(nRow, 0)->text();
+    fp.setRow(nRow);
+    fp.setColumn(nCol);
+    ui->tablaW->setItem(nRow, 0,
+                        new QTableWidgetItem(nombreItem));
+    fp.setWindowTitle(nombreItem);
+    fp.exec();
+}
+
+void Perfiles::celdaEditada(int nRow, int nCol) {
+    qDebug() << "\nFila => " << nRow << " \nColumna => " << nCol;
+
+    //TODO Implementar cambio de valor de celda
+}
 

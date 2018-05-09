@@ -2,6 +2,7 @@
 #define PERFILES_H
 
 #include <QWidget>
+#include <QTableWidgetItem>
 #include "formularioperfiles.h"
 #include "JsonSerializer.h"
 
@@ -21,13 +22,16 @@ private slots:
     void on_cerrarBtn_clicked();
     void on_retrocederBtn_clicked();
     void on_nuevoBtn_clicked();
-    void on_cargarBtn_clicked();
+
+    void testTabla(int nRow, int nCol);
+    void opcionesTabla(int nRow, int nCol);
+    void celdaEditada(int nRow, int nCol);
 
 private:
     Ui::Perfiles *ui;
 
     void cargarPerfilesTabla(FormularioPerfiles *o);
-    void cargarPerfilesJson(JsonSerializer *o);
+    void iniciarTabla();
 
     //Tabla
     enum Columna {
