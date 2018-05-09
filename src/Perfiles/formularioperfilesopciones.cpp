@@ -1,5 +1,6 @@
 #include "formularioperfilesopciones.h"
 #include "ui_formularioperfilesopciones.h"
+#include "JsonSerializer.h"
 
 FormularioPerfilesOpciones::FormularioPerfilesOpciones(QTableWidget *tableWidget,QWidget *parent) :
     QDialog(parent),
@@ -26,12 +27,12 @@ void FormularioPerfilesOpciones::on_editarBtn_clicked() {
 void FormularioPerfilesOpciones::on_eliminarBtn_clicked() {
     qDebug() << "\nEliminando fila #" << nRow;
     tableWidget->removeRow(0);
-    if(celdaVacia()){
-        qDebug() << "Celda vacia";
-        close();
-    }
 
-    //TODO Eliminar del json
+    JsonSerializer *jsonSerializer = new JsonSerializer("Perfiles.json");
+    jsonSerializer->removeObject();
+
+    if(celdaVacia()) close;
+
 }
 
 void FormularioPerfilesOpciones::on_seleccionarBtn_clicked() {

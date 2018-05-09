@@ -11,7 +11,9 @@
 
 JsonSerializer::JsonSerializer(QString filename, FormularioPerfiles *fp)
         : fn(filename), fp(fp) {
+
     openFile();
+
 }
 
 JsonSerializer::~JsonSerializer() {
@@ -43,9 +45,9 @@ int JsonSerializer::readJson() {
     QJsonValue value = object.value("Perfiles");
     QJsonArray array = value.toArray();
 
-    foreach(QJsonValue v, array)
+    /*foreach(QJsonValue v, array)
         qDebug() << v.toObject().value("Nombre");
-
+*/
 
     return SUCESS;
 }
@@ -97,4 +99,37 @@ bool JsonSerializer::fileVerify(QFile *file) {
     if(!file->exists()) return false;
 
     return true;
+}
+
+void JsonSerializer::removeObject() {
+    qDebug() << "\n______________________________________";
+    qDebug() << "\t\tRemoving object from json";
+    qDebug() << filePath;
+
+    QFile jsonFile(filePath);
+
+    if(!fileVerify(&jsonFile)) return;
+
+    QByteArray jsonFileData = jsonFile.readAll();
+    jsonFile.close();
+
+    QJsonDocument document = QJsonDocument::fromJson(jsonFileData);
+    QJsonObject object = document.object();
+
+    QJsonValue value = object.value("Perfiles");
+    QJsonArray array = value.toArray();
+
+    for (int i = 0; i < array.size(); ++i) {
+        array.removeAt(i);
+    }
+
+    QJsonObject jsonObject = document.object();
+    jsonObject.insert("Perfiles",array);
+    QJsonDocument documentNew(jsonObject);
+
+    QFile jsonFileW(filePath);
+    jsonFileW.open(QIODevice::WriteOnly | QIODevice::Text);
+    jsonFileW.write(documentNew.toJson());
+    jsonFileW.close();
+
 }
