@@ -16,7 +16,8 @@ set(SOURCE_FILES    src/Inicio/inicio.cpp
                     src/Creditos/creditos.cpp
                     src/Comunicacion/comunicacion.cpp
                     src/Perfiles/formularioperfiles.cpp
-                    src/Perfiles/JsonSerializer.cpp )
+                    src/Perfiles/JsonSerializer.cpp
+                    src/Perfiles/formularioperfilesopciones.cpp)
 
 set(INCLUDE_FILES   src/Inicio/inicio.h
                     src/Splash/splash.h
@@ -27,6 +28,7 @@ set(INCLUDE_FILES   src/Inicio/inicio.h
                     src/Comunicacion/comunicacion.h
                     src/Perfiles/formularioperfiles.h
                     src/Perfiles/JsonSerializer.h
+                    src/Perfiles/formularioperfilesopciones.h
         )
 
 set(UI_FILES        src/Inicio/inicio.ui
@@ -35,6 +37,7 @@ set(UI_FILES        src/Inicio/inicio.ui
                     src/Configuracion/configuracion.ui
                     src/Creditos/creditos.ui
                     src/Perfiles/formularioperfiles.ui
+                    src/Perfiles/formularioperfilesopciones.ui
         )
 
 #Find packages

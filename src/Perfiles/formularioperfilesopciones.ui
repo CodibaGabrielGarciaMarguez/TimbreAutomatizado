@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FormularioPerfilesOpciones</class>
+ <widget class="QDialog" name="FormularioPerfilesOpciones">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>289</width>
+    <height>84</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QPushButton" name="editarBtn">
+       <property name="text">
+        <string>Editar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="eliminarBtn">
+       <property name="text">
+        <string>Eliminar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="seleccionarBtn">
+       <property name="text">
+        <string>Seleccionar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -32,7 +32,8 @@ SOURCES += \
         src/Creditos/creditos.cpp \
         src/Configuracion/configuracion.cpp \
         src/Perfiles/formularioperfiles.cpp \
-        src/Perfiles/JsonSerializer.cpp
+        src/Perfiles/JsonSerializer.cpp \
+    src/Perfiles/formularioperfilesopciones.cpp
 
 
 HEADERS += \
@@ -43,7 +44,8 @@ HEADERS += \
     src/Creditos/creditos.h \
     src/Configuracion/configuracion.h \
     src/Perfiles/formularioperfiles.h \
-    src/Perfiles/JsonSerializer.h
+    src/Perfiles/JsonSerializer.h \
+    src/Perfiles/formularioperfilesopciones.h
 
 FORMS += \
     src/Inicio/inicio.ui \
@@ -51,7 +53,8 @@ FORMS += \
     src/Perfiles/perfiles.ui \
     src/Creditos/creditos.ui \
     src/Configuracion/configuracion.ui \
-    src/Perfiles/formularioperfiles.ui
+    src/Perfiles/formularioperfiles.ui \
+    src/Perfiles/formularioperfilesopciones.ui
 
 RESOURCES += \
     resources.qrc
