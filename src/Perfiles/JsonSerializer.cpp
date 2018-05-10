@@ -101,7 +101,7 @@ bool JsonSerializer::fileVerify(QFile *file) {
     return true;
 }
 
-void JsonSerializer::removeObject() {
+void JsonSerializer::removeObject(const QString key) {
     qDebug() << "\n______________________________________";
     qDebug() << "\t\tRemoving object from json";
     qDebug() << filePath;
@@ -120,7 +120,10 @@ void JsonSerializer::removeObject() {
     QJsonArray array = value.toArray();
 
     for (int i = 0; i < array.size(); ++i) {
-        array.removeAt(i);
+        if(array[i].toObject().value("Nombre") ==  key){
+            qDebug() << array[i].toObject().value("Nombre") << " = " << key;
+            array.removeAt(i);
+        }
     }
 
     QJsonObject jsonObject = document.object();

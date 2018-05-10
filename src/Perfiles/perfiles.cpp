@@ -35,8 +35,8 @@ Perfiles::Perfiles(QWidget *parent) :
     connect( ui->tablaW, SIGNAL( cellDoubleClicked (int, int) ),
             this, SLOT( opcionesTabla(int, int)) );
 
-    connect(ui->tablaW, SIGNAL( cellChanged(int, int) ),
-            this, SLOT( celdaEditada(int, int)) );
+    //connect(ui->tablaW, SIGNAL( cellChanged(int, int) ),
+      //      this, SLOT( celdaEditada(int, int)) );
 
 }
 
@@ -82,9 +82,6 @@ void Perfiles::iniciarTabla() {
 
     QJsonValue jsonValue = object.value("Perfiles");
     QJsonArray jsonArray = jsonValue.toArray();
-
-    ui->tablaW->clear();
-    ui->tablaW->clearContents();
 
     for(QJsonValue value: jsonArray){
         qDebug() << value.toObject().value("Nombre");

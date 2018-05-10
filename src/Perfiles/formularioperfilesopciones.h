@@ -25,7 +25,7 @@ private slots:
     void on_eliminarBtn_clicked();
     void on_seleccionarBtn_clicked();
 
-    bool celdaVacia();
+    inline bool celdaVacia() { return true; }
 
 private:
     Ui::FormularioPerfilesOpciones *ui;

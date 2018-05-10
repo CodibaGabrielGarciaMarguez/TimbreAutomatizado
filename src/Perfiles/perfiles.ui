@@ -56,21 +56,14 @@
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QPushButton" name="cargarBtn">
-      <property name="text">
-       <string>Cargar</string>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QTableWidget" name="tablaW">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>20</x>
      <y>70</y>
-     <width>411</width>
+     <width>621</width>
      <height>251</height>
     </rect>
    </property>

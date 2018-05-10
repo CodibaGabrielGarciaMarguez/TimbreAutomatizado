@@ -21,17 +21,21 @@ FormularioPerfilesOpciones::~FormularioPerfilesOpciones()
 }
 
 void FormularioPerfilesOpciones::on_editarBtn_clicked() {
-
+    qDebug() << "\nEditando perfil #" << nRow+1;
 }
 
 void FormularioPerfilesOpciones::on_eliminarBtn_clicked() {
     qDebug() << "\nEliminando fila #" << nRow;
-    tableWidget->removeRow(0);
+    qDebug() << "Eliminando columna #" << nCol;
+
+    auto item = tableWidget->item(nRow, 0);
+    qDebug() << item->text();
 
     JsonSerializer *jsonSerializer = new JsonSerializer("Perfiles.json");
-    jsonSerializer->removeObject();
+    jsonSerializer->removeObject(item->text());
+    tableWidget->removeRow(nRow);
 
-    if(celdaVacia()) close;
+    if(celdaVacia()) { close(); }
 
 }
 
@@ -45,8 +49,4 @@ void FormularioPerfilesOpciones::setColumn(int nCol) {
 
 void FormularioPerfilesOpciones::setRow(int nRow) {
     this->nRow = nRow;
-}
-
-bool FormularioPerfilesOpciones::celdaVacia() {
-    return true;
 }

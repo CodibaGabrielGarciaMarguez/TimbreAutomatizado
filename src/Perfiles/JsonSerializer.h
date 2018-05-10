@@ -20,7 +20,7 @@ public:
     int readJson();
     inline QString pathJson(){ return  filePath; }
 
-    void removeObject();
+    void removeObject(const QString key);
 
     enum State{
         SUCESS, FAIL, FAIL_OPEN
