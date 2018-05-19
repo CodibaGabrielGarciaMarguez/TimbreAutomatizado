@@ -84,6 +84,8 @@ int JsonSerializer::writeJson() {
     arrayPerfiles.push_back(nuevoPerfil);
     jsonObject.insert("Perfiles",arrayPerfiles);
 
+
+
     QJsonDocument documentNew(jsonObject);
 
     QFile jsonFileW(filePath);
@@ -92,6 +94,50 @@ int JsonSerializer::writeJson() {
     jsonFileW.close();
 
     return SUCESS;
+}
+
+int JsonSerializer::updateJson(FormularioPerfiles *fpKey) {
+    qDebug() << "\n______________________________________";
+    qDebug() << "\t\tEditing object from json";
+    qDebug() << filePath;
+
+    QFile jsonFile(filePath);
+    if(!fileVerify(&jsonFile)){ return FAIL_OPEN; }
+
+    QByteArray jsonFileData = jsonFile.readAll();
+    jsonFile.close();
+
+    QJsonDocument document = QJsonDocument::fromJson(jsonFileData);
+    
+    auto jsonObject = document.object();
+    auto perfilesRoot =  jsonObject.value("Perfiles");
+    auto arrayPerfiles = perfilesRoot.toArray();
+
+    auto nombre = fpKey->nombre();
+    qDebug() << "Nombre fpKey => " << nombre;
+
+    QJsonObject nuevoPerfil;
+    nuevoPerfil.insert("Nombre", nombre);
+    nuevoPerfil.insert("Editado", true);
+    QJsonObject e_sObj;
+    e_sObj.insert("EntradaHr",fpKey->hrEntrada());
+    e_sObj.insert("SalidaHr",fpKey->hrSalida());
+    nuevoPerfil.insert("E/S",e_sObj);
+    QJsonObject clasesObj;
+    clasesObj.insert("Nro clases",fpKey->nHoras());
+    clasesObj.insert("TiempoHora",fpKey->tHoras());
+    clasesObj.insert("TiempoReceso",fpKey->tReceso());
+    nuevoPerfil.insert("Clases",clasesObj);
+    arrayPerfiles.push_back(nuevoPerfil);
+    jsonObject.insert("Perfiles",arrayPerfiles);
+
+    QJsonDocument documentNew(jsonObject);
+
+    QFile jsonFileW(filePath);
+    jsonFileW.open(QIODevice::WriteOnly | QIODevice::Text);
+    jsonFileW.write(documentNew.toJson());
+    jsonFileW.close();
+
 }
 
 bool JsonSerializer::fileVerify(QFile *file) {
@@ -136,3 +182,19 @@ void JsonSerializer::removeObject(const QString key) {
     jsonFileW.close();
 
 }
+
+QJsonArray JsonSerializer::obtenerArray() {
+    QFile jsonFile(filePath);
+    if(!fileVerify(&jsonFile)){ return {}; }
+
+    QJsonDocument document =
+            QJsonDocument::fromJson(jsonFile.readAll());
+    QJsonObject object = document.object();
+    jsonFile.close();
+
+    QJsonValue value = object.value("Perfiles");
+    QJsonArray array = value.toArray();
+
+    return array;
+}
+

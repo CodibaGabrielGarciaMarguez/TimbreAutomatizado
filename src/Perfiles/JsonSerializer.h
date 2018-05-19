@@ -18,9 +18,12 @@ public:
 
     int writeJson();
     int readJson();
+    int updateJson(FormularioPerfiles *fp = nullptr);
     inline QString pathJson(){ return  filePath; }
+    bool editado(const QString key);
 
     void removeObject(const QString key);
+    QJsonArray obtenerArray();
 
     enum State{
         SUCESS, FAIL, FAIL_OPEN
