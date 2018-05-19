@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QTableWidget>
 #include <QDebug>
+#include "formularioperfiles.h"
 
 namespace Ui {
 class FormularioPerfilesOpciones;
@@ -31,6 +32,14 @@ private:
     Ui::FormularioPerfilesOpciones *ui;
     QTableWidget *tableWidget;
     int nRow, nCol;
+
+    void actualizarTabla(FormularioPerfiles *fp);
+
+    enum Columna {
+        NOMBRE,
+        Hr_Entrada, Hr_Salida,                  //E/S
+        Nro_Clases, Tiempo_Clases, Tiempo_Receso  //Clases
+    };
 };
 
 #endif // FORMULARIOPERFILESOPCIONES_H
