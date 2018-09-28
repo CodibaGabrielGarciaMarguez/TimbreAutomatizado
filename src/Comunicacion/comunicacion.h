@@ -5,17 +5,27 @@
 #ifndef TIMBREAUTOMATIZADO_COMUNICACION_H
 #define TIMBREAUTOMATIZADO_COMUNICACION_H
 
-#include <QSerialPort>
-#include <QSerialPortInfo>
+#include <QtSerialPort/QSerialPort>
+#include <QtSerialPort/QSerialPortInfo>
+#include <QMessageBox>
+#include <QDebug>
+#include <QByteArray>
 
 class Comunicacion {
 public:
     explicit Comunicacion();
     ~Comunicacion();
 
+    bool send(const char *n) const;
+    bool sendOn(const char *n) const ;
+    bool sendOff(const char *n) const ;
+
 private:
-    QSerialPort *puertoSerial;
-    QSerialPortInfo *infoPuertoSerial;
+    QSerialPort *arduino;
+    static const quint16 arduino_uno_vendor_id = 9025;
+    static const quint16 arduino_uno_product_id = 67;
+    QString arduino_port_name;
+    bool arduino_is_available;
 
 };
 

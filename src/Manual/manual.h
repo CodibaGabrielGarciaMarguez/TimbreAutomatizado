@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QDesktopWidget>
+#include <src/Comunicacion/comunicacion.h>
 
 namespace Ui {
 class Manual;
@@ -18,11 +19,14 @@ public:
 
 private slots:
     void on_cerrarBtn_clicked();
-    void on_retrocederBtn_clicked();
     void on_timbreBtn_clicked();
+    void on_retrocederBtn_clicked();
+    void on_apagarBtn_clicked();
+
 
 private:
     Ui::Manual *ui;
+    Comunicacion *comunicacion;
 
 };
 

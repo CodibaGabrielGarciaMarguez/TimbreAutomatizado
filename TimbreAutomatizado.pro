@@ -33,7 +33,8 @@ SOURCES += \
         src/Configuracion/configuracion.cpp \
         src/Perfiles/formularioperfiles.cpp \
         src/Perfiles/JsonSerializer.cpp \
-    src/Perfiles/formularioperfilesopciones.cpp
+        src/Perfiles/formularioperfilesopciones.cpp \
+        src/Comunicacion/comunicacion.cpp
 
 
 HEADERS += \
@@ -45,7 +46,8 @@ HEADERS += \
     src/Configuracion/configuracion.h \
     src/Perfiles/formularioperfiles.h \
     src/Perfiles/JsonSerializer.h \
-    src/Perfiles/formularioperfilesopciones.h
+    src/Perfiles/formularioperfilesopciones.h \
+    src/Comunicacion/comunicacion.h
 
 FORMS += \
     src/Inicio/inicio.ui \

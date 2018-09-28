@@ -1,4 +1,4 @@
-#include <src/Configuracion/configuracion.h>
+#include "src/Configuracion/configuracion.h"
 #include "inicio.h"
 #include "ui_inicio.h"
 

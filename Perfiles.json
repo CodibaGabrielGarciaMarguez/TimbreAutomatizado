@@ -1,0 +1,29 @@
+{
+    "Perfiles": [
+        {
+            "Clases": {
+                "Nro clases": 6,
+                "TiempoHora": 55,
+                "TiempoReceso": 30
+            },
+            "E/S": {
+                "EntradaHr": 7.449999999999999,
+                "SalidaHr": 12.15
+            },
+            "Editado": true,
+            "Nombre": "Default"
+        },
+        {
+            "Clases": {
+                "Nro clases": 0,
+                "TiempoHora": 0,
+                "TiempoReceso": 0
+            },
+            "E/S": {
+                "EntradaHr": 0,
+                "SalidaHr": 0
+            },
+            "Nombre": "fg"
+        }
+    ]
+}

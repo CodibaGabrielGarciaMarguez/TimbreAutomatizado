@@ -8,7 +8,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(CMAKE_AUTORCC ON)
 
-set(SOURCE_FILES    src/Inicio/inicio.cpp
+set(SOURCE_DIR    src/Inicio/inicio.cpp
                     src/Splash/splash.cpp
                     src/Manual/manual.cpp
                     src/Perfiles/perfiles.cpp
@@ -17,7 +17,8 @@ set(SOURCE_FILES    src/Inicio/inicio.cpp
                     src/Comunicacion/comunicacion.cpp
                     src/Perfiles/formularioperfiles.cpp
                     src/Perfiles/JsonSerializer.cpp
-                    src/Perfiles/formularioperfilesopciones.cpp)
+                    src/Perfiles/formularioperfilesopciones.cpp
+        )
 
 set(INCLUDE_FILES   src/Inicio/inicio.h
                     src/Splash/splash.h
@@ -51,7 +52,7 @@ qt5_add_resources(RESOURCES resources.qrc)
 
 add_executable(TimbreAutomatizado
         main.cpp
-        ${SOURCE_FILES}
+        ${SOURCE_DIR}
         ${INCLUDE_FILES}
         ${UI_FILES}
         ${RESOURCES}

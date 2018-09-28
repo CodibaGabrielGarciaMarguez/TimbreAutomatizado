@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">font: 75 italic 10pt &quot;Clear Sans&quot;;
+font rgb(239, 41, 41)</string>
+  </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
@@ -29,14 +33,14 @@
   <widget class="QPushButton" name="timbreBtn">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>180</x>
      <y>80</y>
-     <width>28</width>
-     <height>24</height>
+     <width>80</width>
+     <height>26</height>
     </rect>
    </property>
    <property name="text">
-    <string/>
+    <string>Enceder</string>
    </property>
    <property name="icon">
     <iconset>
@@ -76,6 +80,23 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QPushButton" name="apagarBtn">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>80</y>
+     <width>80</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Apagar</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/new/prefix1/resource/timbreOff.png</normaloff>:/new/prefix1/resource/timbreOff.png</iconset>
+   </property>
   </widget>
  </widget>
  <resources>

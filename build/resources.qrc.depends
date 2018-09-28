@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>resource/index.png</file>
+        <file>resource/icono.png</file>
+        <file>resource/cerrar.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>Perfiles.json</file>
+    </qresource>
+</RCC>
